@@ -1,12 +1,10 @@
 import "../../App.css";
-import { useEffect } from "react";
 import { DesktopOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu } from "antd";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Line } from "@ant-design/plots";
 import { Column } from "@ant-design/plots";
-// import { Heatmap } from "@ant-design/plots";
-import { getMap } from "../../utils/google/googleApi";
+import Map from "./map/Map";
 
 // layout
 const { Header, Content, Footer, Sider } = Layout;
@@ -29,7 +27,6 @@ const items = [
 
 function DashBoard() {
   const [collapsed, setCollapsed] = useState(false);
-  // const [map, setMap] = useState("");
 
   // chart
   const data = [
@@ -42,21 +39,6 @@ function DashBoard() {
     { hood: "Poblenou", over65: 350000 },
     { hood: "Sarria", over65: 123 },
   ];
-
-  //   const [data, setData] = useState([]);
-
-  //   useEffect(() => {
-  //     asyncFetch();
-  //   }, []);
-
-  //   const asyncFetch = () => {
-  //     fetch("https://gw.alipayobjects.com/os/bmw-prod/e00d52f4-2fa6-47ee-a0d7-105dd95bde20.json")
-  //       .then((response) => response.json())
-  //       .then((json) => setData(json))
-  //       .catch((error) => {
-  //         console.log("fetch data failed", error);
-  //       });
-  //   };
 
   // config columnas
   const config = {
@@ -165,6 +147,7 @@ function DashBoard() {
 
         <Content
           style={{
+            width: "800px",
             margin: "0 16px",
           }}
         >
@@ -184,6 +167,9 @@ function DashBoard() {
             }}
           >
             {/* Aqui mapa */}
+            <div className="leaflet-container">
+              <Map />
+            </div>
           </div>
         </Content>
 
