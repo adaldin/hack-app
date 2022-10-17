@@ -11,10 +11,6 @@ function Map() {
   };
 
   return (
-    // <MapContainer center={[41.390205, 2.154007]} zoom={13} scrollWheelZoom={false}>
-    //   {/* <GeoJSON style={{ hoodStyle }} data={dataGeo.features}></GeoJSON> */}
-    // </MapContainer>
-
     <MapContainer center={[41.390205, 2.154007]} zoom={13} scrollWheelZoom={false}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
