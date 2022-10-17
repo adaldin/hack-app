@@ -14,4 +14,3 @@ $DBhost = "qahe287.fotointerior.com";
   die($ex->getMessage());
  }
  ?>
- 

@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 require_once 'database_connect.php';
  
  $query = "SELECT * FROM barrio";
@@ -11,7 +10,7 @@ require_once 'database_connect.php';
  
  while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
   
-  $userData['AllUsers'][] = $row;
+  $userData['Barrios'][] = $row;
  }
  
  echo json_encode($userData);
