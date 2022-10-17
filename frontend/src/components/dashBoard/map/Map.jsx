@@ -10,13 +10,18 @@ function Map() {
     dashArray: 1,
   };
 
+  function handlefeature(barri, layer) {
+    const barriName = barri.properties.NOM;
+    layer.bindPopup(barriName);
+  }
+
   return (
     <MapContainer center={[41.390205, 2.154007]} zoom={13} scrollWheelZoom={false}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
-      <GeoJSON style={hoodStyle} data={dataGeo.features}></GeoJSON>
+      <GeoJSON style={hoodStyle} data={dataGeo.features} onEachFeature={handlefeature}></GeoJSON>
     </MapContainer>
   );
 }

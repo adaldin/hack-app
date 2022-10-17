@@ -1,12 +1,13 @@
 import "../../App.css";
-import { useEffect } from "react";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { DesktopOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu } from "antd";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Line } from "@ant-design/plots";
 import { Column } from "@ant-design/plots";
 import Map from "./map/Map";
-
+import Button from "react-bootstrap/esm/Button";
 
 // layout
 const { Header, Content, Footer, Sider } = Layout;
@@ -29,7 +30,6 @@ const items = [
 
 function DashBoard() {
   const [collapsed, setCollapsed] = useState(false);
-  // const [map, setMap] = useState("");
 
   // chart
   const data = [
@@ -150,7 +150,6 @@ function DashBoard() {
 
         <Content
           style={{
-            width: "800px",
             margin: "0 16px",
           }}
         >
@@ -174,6 +173,54 @@ function DashBoard() {
             <div className="leaflet-container">
               <Map />
             </div>
+          </div>
+        </Content>
+
+        <Content
+          style={{
+            margin: "0 16px",
+          }}
+        >
+          <Breadcrumb
+            style={{
+              margin: "16px 0",
+            }}
+          >
+            <Breadcrumb.Item>Accions recomendades</Breadcrumb.Item>
+          </Breadcrumb>
+          <div
+            className="site-layout-background "
+            style={{
+              padding: 24,
+              minHeight: 360,
+            }}
+          >
+            <Row className="border border-danger rounded justify-content-evenly align-items-baseline  p-2 bg-warning my-3">
+              <Col className="fw-bold">El Raval</Col>
+              <Col>Població > 65: 26.6907</Col>
+              <Col>Renta per cap > 65: 453€</Col>
+              <Col className="d-flex justify-content-end">
+                <Button variant="danger">Veure</Button>
+              </Col>
+            </Row>
+
+            <Row className="border border-danger rounded justify-content-evenly align-items-baseline  p-2 bg-warning my-3">
+              <Col className="fw-bold">Sant Martí</Col>
+              <Col>Població > 65: 26.6907</Col>
+              <Col>Renta per cap > 65: 600€</Col>
+              <Col className="d-flex justify-content-end">
+                <Button variant="danger">Veure</Button>
+              </Col>
+            </Row>
+
+            <Row className="border border-danger rounded justify-content-evenly align-items-baseline  p-2 bg-warning my-3">
+              <Col className="fw-bold">Barceloneta</Col>
+              <Col>Població > 65: 50.6907</Col>
+              <Col>Renta per cap > 65: 400€</Col>
+              <Col className="d-flex justify-content-end">
+                <Button variant="danger">Veure</Button>
+              </Col>
+            </Row>
           </div>
         </Content>
 
