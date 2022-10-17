@@ -1,5 +1,3 @@
-<?php 
-
 require_once 'database_connect.php';
  
  $query = "SELECT * FROM barrio";
@@ -15,4 +13,3 @@ require_once 'database_connect.php';
  }
  
  echo json_encode($userData);
- ?>

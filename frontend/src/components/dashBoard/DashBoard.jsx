@@ -1,14 +1,9 @@
 import "../../App.css";
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { DesktopOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu } from "antd";
 import { useState } from "react";
 import { Line } from "@ant-design/plots";
+import { Column } from "@ant-design/plots";
 
 // layout
 const { Header, Content, Footer, Sider } = Layout;
@@ -23,15 +18,8 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-  getItem("Team", "sub2", <TeamOutlined />, [getItem("Team 1", "6"), getItem("Team 2", "8")]),
-  getItem("Files", "9", <FileOutlined />),
+  getItem("Data Analisis", "1", <DesktopOutlined />),
+  getItem("Accions", "2", <DesktopOutlined />),
 ];
 
 // component
@@ -41,14 +29,14 @@ function DashBoard() {
 
   // chart
   const data = [
-    { temporada: "2020-21", goles: 4 },
-    { temporada: "2021-22", goles: 3 },
-    { temporada: "2018-19", goles: 10 },
-    { temporada: "2018-19", goles: 22 },
-    { temporada: "2004-05", goles: 3 },
-    { temporada: "2003-04", goles: 1 },
-    { temporada: "2000-01", goles: 0 },
-    { temporada: "1999-2000", goles: 123 },
+    { hood: "Les Corts", over65: 40000 },
+    { hood: "El Raval", over65: 70000 },
+    { hood: "Nou Barris", over65: 10000 },
+    { hood: "Gracia", over65: 22000 },
+    { hood: "El clot", over65: 30000 },
+    { hood: "Sant Martí", over65: 1000 },
+    { hood: "Poblenou", over65: 350000 },
+    { hood: "Sarria", over65: 123 },
   ];
 
   //   const [data, setData] = useState([]);
@@ -65,7 +53,23 @@ function DashBoard() {
   //         console.log("fetch data failed", error);
   //       });
   //   };
+
+  // config columnas
   const config = {
+    data,
+    xField: "hood",
+    yField: "over65",
+    conversionTag: {},
+    xAxis: {
+      label: {
+        autoHide: true,
+        autoRotate: false,
+      },
+    },
+  };
+
+  // config linea
+  const configColumns = {
     data,
     animation: {
       // Configuration of the first animation
@@ -75,8 +79,8 @@ function DashBoard() {
       },
     },
     autoFit: true,
-    xField: "temporada",
-    yField: "goles",
+    xField: "hood",
+    yField: "over65",
     point: {
       size: 5,
       shape: "diamond",
@@ -115,8 +119,8 @@ function DashBoard() {
               margin: "16px 0",
             }}
           >
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            <Breadcrumb.Item>Data Analisis</Breadcrumb.Item>
+            <Breadcrumb.Item>Barrios amb gent + 65 anys</Breadcrumb.Item>
           </Breadcrumb>
           <div
             className="site-layout-background"
@@ -125,15 +129,64 @@ function DashBoard() {
               minHeight: 360,
             }}
           >
-            <Line {...config} />;
+            <Column {...configColumns} />
           </div>
         </Content>
+
+        <Content
+          style={{
+            margin: "0 16px",
+          }}
+        >
+          <Breadcrumb
+            style={{
+              margin: "16px 0",
+            }}
+          >
+            <Breadcrumb.Item>Data Analisis</Breadcrumb.Item>
+            <Breadcrumb.Item>Barris amb rentes + baixes</Breadcrumb.Item>
+          </Breadcrumb>
+          <div
+            className="site-layout-background"
+            style={{
+              padding: 24,
+              minHeight: 360,
+            }}
+          >
+            <Line {...config} />
+          </div>
+        </Content>
+
+        <Content
+          style={{
+            margin: "0 16px",
+          }}
+        >
+          <Breadcrumb
+            style={{
+              margin: "16px 0",
+            }}
+          >
+            <Breadcrumb.Item>Data analisis</Breadcrumb.Item>
+            <Breadcrumb.Item>Barris amb persones + 65 i rentes + baixes</Breadcrumb.Item>
+          </Breadcrumb>
+          <div
+            className="site-layout-background"
+            style={{
+              padding: 24,
+              minHeight: 360,
+            }}
+          >
+            <Line {...config} />
+          </div>
+        </Content>
+
         <Footer
           style={{
             textAlign: "center",
           }}
         >
-          Ant Design ©2018 Created by Ant UED
+          - Sols ©2022 Created by Equip 1
         </Footer>
       </Layout>
     </Layout>
