@@ -111,129 +111,138 @@ function DashBoard() {
             padding: 0,
           }}
         />
-        <Content
-          style={{
-            margin: "0 16px",
-          }}
-        >
-          <Breadcrumb
-            style={{
-              margin: "16px 0",
-            }}
-          >
-            <Breadcrumb.Item>Data Analisis</Breadcrumb.Item>
-            <Breadcrumb.Item>Barrios amb gent + 65 anys</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            className="site-layout-background"
-            style={{
-              padding: 24,
-              minHeight: 360,
-            }}
-          >
-            <Column {...configColumns} />
-          </div>
-        </Content>
 
-        <Content
-          style={{
-            margin: "0 16px",
-          }}
-        >
-          <Breadcrumb
-            style={{
-              margin: "16px 0",
-            }}
-          >
-            <Breadcrumb.Item>Data Analisis</Breadcrumb.Item>
-            <Breadcrumb.Item>Barris amb rentes + baixes</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            className="site-layout-background"
-            style={{
-              padding: 24,
-              minHeight: 360,
-            }}
-          >
-            <Line {...config} />
-          </div>
-        </Content>
+        <Row>
+          <Col xs={12} sm={6}>
+            <Content
+              style={{
+                margin: "0 16px",
+              }}
+            >
+              <Breadcrumb
+                style={{
+                  margin: "16px 0",
+                }}
+              >
+                <Breadcrumb.Item>Data Analisis</Breadcrumb.Item>
+                <Breadcrumb.Item>Barrios amb gent + 65 anys</Breadcrumb.Item>
+              </Breadcrumb>
+              <div
+                className="site-layout-background"
+                style={{
+                  padding: 24,
+                  minHeight: 360,
+                }}
+              >
+                <Column {...configColumns} />
+              </div>
+            </Content>
+          </Col>
+          <Col xs={12} sm={6}>
+            <Content
+              style={{
+                margin: "0 16px",
+              }}
+            >
+              <Breadcrumb
+                style={{
+                  margin: "16px 0",
+                }}
+              >
+                <Breadcrumb.Item>Data Analisis</Breadcrumb.Item>
+                <Breadcrumb.Item>Barris amb rentes + baixes</Breadcrumb.Item>
+              </Breadcrumb>
+              <div
+                className="site-layout-background"
+                style={{
+                  padding: 24,
+                  minHeight: 360,
+                }}
+              >
+                <Line {...config} />
+              </div>
+            </Content>
+          </Col>
+          <Col xs={12}>
+            <Content
+              style={{
+                margin: "0 16px",
+              }}
+            >
+              <Breadcrumb
+                style={{
+                  margin: "16px 0",
+                }}
+              >
+                <Breadcrumb.Item>Data analisis</Breadcrumb.Item>
+                <Breadcrumb.Item>Barris amb persones + 65 i rentes + baixes</Breadcrumb.Item>
+              </Breadcrumb>
+              <div
+                className="site-layout-background"
+                style={{
+                  padding: 24,
+                  minHeight: 360,
+                }}
+              >
+                {/* Aqui mapa */}
 
-        <Content
-          style={{
-            margin: "0 16px",
-          }}
-        >
-          <Breadcrumb
-            style={{
-              margin: "16px 0",
-            }}
-          >
-            <Breadcrumb.Item>Data analisis</Breadcrumb.Item>
-            <Breadcrumb.Item>Barris amb persones + 65 i rentes + baixes</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            className="site-layout-background"
-            style={{
-              padding: 24,
-              minHeight: 360,
-            }}
-          >
-            {/* Aqui mapa */}
+                <div className="leaflet-container">
+                  <Map />
+                </div>
+              </div>
+            </Content>
+          </Col>
 
-            <div className="leaflet-container">
-              <Map />
-            </div>
-          </div>
-        </Content>
+          <Col xs={12}>
+            <Content
+              style={{
+                margin: "0 16px",
+              }}
+            >
+              <Breadcrumb
+                style={{
+                  margin: "16px 0",
+                }}
+              >
+                <Breadcrumb.Item className="fw-bold">Accions recomendades</Breadcrumb.Item>
+              </Breadcrumb>
+              <div
+                className="site-layout-background "
+                style={{
+                  padding: 24,
+                  minHeight: 360,
+                }}
+              >
+                <Row className="border border-danger rounded justify-content-evenly align-items-baseline  p-2 bg-warning my-3">
+                  <Col className="fw-bold">El Raval</Col>
+                  <Col>Població > 65: 26.6907</Col>
+                  <Col>Renta per cap > 65: 453€</Col>
+                  <Col className="d-flex justify-content-end">
+                    <Button variant="danger">Veure</Button>
+                  </Col>
+                </Row>
 
-        <Content
-          style={{
-            margin: "0 16px",
-          }}
-        >
-          <Breadcrumb
-            style={{
-              margin: "16px 0",
-            }}
-          >
-            <Breadcrumb.Item>Accions recomendades</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            className="site-layout-background "
-            style={{
-              padding: 24,
-              minHeight: 360,
-            }}
-          >
-            <Row className="border border-danger rounded justify-content-evenly align-items-baseline  p-2 bg-warning my-3">
-              <Col className="fw-bold">El Raval</Col>
-              <Col>Població > 65: 26.6907</Col>
-              <Col>Renta per cap > 65: 453€</Col>
-              <Col className="d-flex justify-content-end">
-                <Button variant="danger">Veure</Button>
-              </Col>
-            </Row>
+                <Row className="border border-danger rounded justify-content-evenly align-items-baseline  p-2 bg-warning my-3">
+                  <Col className="fw-bold">Sant Martí</Col>
+                  <Col>Població > 65: 26.6907</Col>
+                  <Col>Renta per cap > 65: 600€</Col>
+                  <Col className="d-flex justify-content-end">
+                    <Button variant="danger">Veure</Button>
+                  </Col>
+                </Row>
 
-            <Row className="border border-danger rounded justify-content-evenly align-items-baseline  p-2 bg-warning my-3">
-              <Col className="fw-bold">Sant Martí</Col>
-              <Col>Població > 65: 26.6907</Col>
-              <Col>Renta per cap > 65: 600€</Col>
-              <Col className="d-flex justify-content-end">
-                <Button variant="danger">Veure</Button>
-              </Col>
-            </Row>
-
-            <Row className="border border-danger rounded justify-content-evenly align-items-baseline  p-2 bg-warning my-3">
-              <Col className="fw-bold">Barceloneta</Col>
-              <Col>Població > 65: 50.6907</Col>
-              <Col>Renta per cap > 65: 400€</Col>
-              <Col className="d-flex justify-content-end">
-                <Button variant="danger">Veure</Button>
-              </Col>
-            </Row>
-          </div>
-        </Content>
+                <Row className="border border-danger rounded justify-content-evenly align-items-baseline  p-2 bg-warning my-3">
+                  <Col className="fw-bold">Barceloneta</Col>
+                  <Col>Població > 65: 50.6907</Col>
+                  <Col>Renta per cap > 65: 400€</Col>
+                  <Col className="d-flex justify-content-end">
+                    <Button variant="danger">Veure</Button>
+                  </Col>
+                </Row>
+              </div>
+            </Content>
+          </Col>
+        </Row>
 
         <Footer
           style={{

@@ -13,6 +13,12 @@ function Map() {
   function handlefeature(barri, layer) {
     const barriName = barri.properties.NOM;
     layer.bindPopup(barriName);
+
+    layer.on({
+      click: (event) => {
+        console.log(event);
+      },
+    });
   }
 
   return (
