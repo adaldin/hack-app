@@ -2,7 +2,7 @@
 
 require_once 'database_connect.php';
  
- $query = "SELECT * FROM tbl_users";
+ $query = "SELECT * FROM barrio";
  
  $stmt = $DBcon->prepare($query);
  $stmt->execute();
