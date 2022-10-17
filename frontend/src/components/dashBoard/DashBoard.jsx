@@ -1,10 +1,12 @@
 import "../../App.css";
+import { useEffect } from "react";
 import { DesktopOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu } from "antd";
 import { useState } from "react";
 import { Line } from "@ant-design/plots";
 import { Column } from "@ant-design/plots";
-import { Heatmap } from "@ant-design/plots";
+// import { Heatmap } from "@ant-design/plots";
+import { getMap } from "../../utils/google/googleApi";
 
 // layout
 const { Header, Content, Footer, Sider } = Layout;
@@ -27,6 +29,7 @@ const items = [
 
 function DashBoard() {
   const [collapsed, setCollapsed] = useState(false);
+  // const [map, setMap] = useState("");
 
   // chart
   const data = [
@@ -94,25 +97,6 @@ function DashBoard() {
   };
 
   // config mapa
-  const configMapa = {
-    data,
-    type: "density",
-    xField: "hood",
-    yField: "over65",
-    colorField: "tmp",
-    color: "#F51D27-#FA541C-#FF8C12-#FFC838-#FAFFA8-#80FF73-#12CCCC-#1890FF-#6E32C2",
-    legend: {
-      position: "bottom",
-    },
-    annotations: [
-      {
-        type: "image",
-        start: ["min", "max"],
-        end: ["max", "min"],
-        src: "https://gw.alipayobjects.com/zos/rmsportal/NeUTMwKtPcPxIFNTWZOZ.png",
-      },
-    ],
-  };
 
   return (
     <Layout
@@ -199,7 +183,7 @@ function DashBoard() {
               minHeight: 360,
             }}
           >
-            <Heatmap {...configMapa} />
+            {/* Aqui mapa */}
           </div>
         </Content>
 
