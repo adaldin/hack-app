@@ -1,3 +1,5 @@
+<?php 
+
 require_once 'database_connect.php';
  
  $query = "SELECT * FROM tbl_users";
@@ -13,3 +15,4 @@ require_once 'database_connect.php';
  }
  
  echo json_encode($userData);
+ ?>
