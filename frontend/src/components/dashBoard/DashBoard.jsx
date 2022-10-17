@@ -4,6 +4,7 @@ import { Breadcrumb, Layout, Menu } from "antd";
 import { useState } from "react";
 import { Line } from "@ant-design/plots";
 import { Column } from "@ant-design/plots";
+import { Heatmap } from "@ant-design/plots";
 
 // layout
 const { Header, Content, Footer, Sider } = Layout;
@@ -92,6 +93,27 @@ function DashBoard() {
     },
   };
 
+  // config mapa
+  const configMapa = {
+    data,
+    type: "density",
+    xField: "hood",
+    yField: "over65",
+    colorField: "tmp",
+    color: "#F51D27-#FA541C-#FF8C12-#FFC838-#FAFFA8-#80FF73-#12CCCC-#1890FF-#6E32C2",
+    legend: {
+      position: "bottom",
+    },
+    annotations: [
+      {
+        type: "image",
+        start: ["min", "max"],
+        end: ["max", "min"],
+        src: "https://gw.alipayobjects.com/zos/rmsportal/NeUTMwKtPcPxIFNTWZOZ.png",
+      },
+    ],
+  };
+
   return (
     <Layout
       style={{
@@ -177,7 +199,7 @@ function DashBoard() {
               minHeight: 360,
             }}
           >
-            <Line {...config} />
+            <Heatmap {...configMapa} />
           </div>
         </Content>
 
