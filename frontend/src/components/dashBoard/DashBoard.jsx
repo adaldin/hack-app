@@ -8,6 +8,8 @@ import { Line } from "@ant-design/plots";
 import { Column } from "@ant-design/plots";
 import Map from "./map/Map";
 import Button from "react-bootstrap/esm/Button";
+import { getData } from "../../utils/API";
+import { useEffect } from "react";
 
 // layout
 const { Header, Content, Footer, Sider } = Layout;
@@ -30,17 +32,26 @@ const items = [
 
 function DashBoard() {
   const [collapsed, setCollapsed] = useState(false);
+  const [apiData, setApìData] = useState([]);
+
+  useEffect(() => {
+    async function getNewData() {
+      const data = await getData();
+      console.log(data);
+    }
+    getNewData();
+  }, []);
 
   // chart
   const data = [
     { hood: "Les Corts", over65: 40000 },
-    { hood: "El Raval", over65: 70000 },
+    { hood: "El Raval", over65: 60000 },
     { hood: "Nou Barris", over65: 10000 },
     { hood: "Gracia", over65: 22000 },
     { hood: "El clot", over65: 30000 },
-    { hood: "Sant Martí", over65: 1000 },
-    { hood: "Poblenou", over65: 350000 },
-    { hood: "Sarria", over65: 123 },
+    { hood: "Sant Martí", over65: 10000 },
+    { hood: "Poblenou", over65: 35000 },
+    { hood: "Sarria", over65: 23000 },
   ];
 
   // config columnas
