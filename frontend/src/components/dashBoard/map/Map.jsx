@@ -4,9 +4,9 @@ import dataGeo from "../../../data/geoJson/0301100100_UNITATS_ADM_POLIGONS.json"
 function Map() {
   const hoodStyle = {
     fillColor: "blue",
-    fillOpacity: 0.8,
-    color: "black",
-    weight: 2,
+    fillOpacity: 0.2,
+    color: "blue",
+    weight: 1,
     dashArray: 1,
   };
 
