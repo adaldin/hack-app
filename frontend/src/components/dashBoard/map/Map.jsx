@@ -15,8 +15,11 @@ function Map() {
     layer.bindPopup(barriName);
 
     layer.on({
-      click: (event) => {
-        console.log(event);
+      mouseover: (event) => {
+        event.target.setStyle({
+          color: "red",
+          fillColor: "red",
+        });
       },
     });
   }
