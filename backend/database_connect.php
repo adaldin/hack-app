@@ -1,8 +1,7 @@
-<?php
 $DBhost = "qahe287.fotointerior.com";
  $DBuser = "qahe287";
  $DBpass = "BarriosBcn22";
- $DBname = "qahe287";
+ $DBname = "barriosbcn";
  
  try{
   
@@ -13,5 +12,4 @@ $DBhost = "qahe287.fotointerior.com";
   
   die($ex->getMessage());
  }
- ?>
  
