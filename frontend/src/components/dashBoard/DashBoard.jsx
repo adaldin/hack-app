@@ -35,8 +35,8 @@ function DashBoard() {
     { hood: "Gracia", over65: 22000 },
     { hood: "El clot", over65: 30000 },
     { hood: "Sant Martí", over65: 1000 },
-    { hood: "Poblenou", over65: 35000 },
-    { hood: "Sarria", over65: 12000 },
+    { hood: "Poblenou", over65: 350000 },
+    { hood: "Sarria", over65: 123 },
   ];
 
   //   const [data, setData] = useState([]);
@@ -59,7 +59,7 @@ function DashBoard() {
     data,
     xField: "hood",
     yField: "over65",
-    conversionTag: { data },
+    conversionTag: {},
     xAxis: {
       label: {
         autoHide: true,
