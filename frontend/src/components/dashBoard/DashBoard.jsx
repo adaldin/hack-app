@@ -1,10 +1,12 @@
 import "../../App.css";
+import { useEffect } from "react";
 import { DesktopOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu } from "antd";
 import { useState, useEffect } from "react";
 import { Line } from "@ant-design/plots";
 import { Column } from "@ant-design/plots";
 import Map from "./map/Map";
+
 
 // layout
 const { Header, Content, Footer, Sider } = Layout;
@@ -27,6 +29,7 @@ const items = [
 
 function DashBoard() {
   const [collapsed, setCollapsed] = useState(false);
+  // const [map, setMap] = useState("");
 
   // chart
   const data = [
@@ -167,6 +170,7 @@ function DashBoard() {
             }}
           >
             {/* Aqui mapa */}
+
             <div className="leaflet-container">
               <Map />
             </div>
