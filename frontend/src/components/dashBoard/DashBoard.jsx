@@ -37,7 +37,7 @@ function DashBoard() {
   useEffect(() => {
     async function getNewData() {
       const data = await getData();
-      console.log(data);
+      setApìData(data);
     }
     getNewData();
   }, []);
